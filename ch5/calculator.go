@@ -5,6 +5,8 @@ import (
 	"strconv"
 )
 
+type calcMapFunc func(int, int) int
+
 func add(x int, y int) int {
 	return x + y
 }
@@ -21,7 +23,7 @@ func divide(x int, y int) int {
 	return x / y
 }
 
-var calcMap = map[string]func(int, int) int{
+var calcMap = map[string]calcMapFunc{
 	"+": add,
 	"-": minus,
 	"*": multiply,
